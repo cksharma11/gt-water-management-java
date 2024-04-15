@@ -27,12 +27,16 @@ public class InputParser {
         String command = split[0];
         List<String> args = new ArrayList<>(Arrays.asList(split).subList(1, split.length));
 
-        return switch (command) {
-            case "ALLOT_WATER" -> new Command(CommandType.ALLOT_WATER, args);
-            case "ADD_GUESTS" -> new Command(CommandType.ADD_GUESTS, args);
-            case "BILL" -> new Command(CommandType.BILL, args);
-            default -> throw new InvalidCommandException("Invalid command " + command);
-        };
+        switch (command) {
+            case "ALLOT_WATER":
+                return new Command(CommandType.ALLOT_WATER, args);
+            case "ADD_GUESTS":
+                return new Command(CommandType.ADD_GUESTS, args);
+            case "BILL":
+                return new Command(CommandType.BILL, args);
+            default:
+                throw new InvalidCommandException("Invalid command " + command);
+        }
     }
 }
 

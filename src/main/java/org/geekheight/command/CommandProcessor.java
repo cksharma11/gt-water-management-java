@@ -20,7 +20,7 @@ public class CommandProcessor {
 
     public void processCommands() throws InvalidCommandException {
         for (Command command : commands) {
-            Object output = commandExecutor.build(command.command()).execute(command.args());
+            Object output = commandExecutor.build(command.getCommand()).execute(command.getArgs());
             if (output instanceof String) {
                 logger.log((String) output);
             }

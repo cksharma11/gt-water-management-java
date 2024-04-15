@@ -17,8 +17,8 @@ public class SlabRateCalculator implements WaterRateCalculator {
         int remainingWater = waterConsumed;
 
         for (Slab slab : slabs) {
-            int waterInSlab = Math.min(remainingWater, slab.upperBound() - slab.lowerBound());
-            totalCost += waterInSlab * slab.rate();
+            int waterInSlab = Math.min(remainingWater, slab.getUpperBound() - slab.getLowerBound());
+            totalCost += waterInSlab * slab.getRate();
             remainingWater -= waterInSlab;
             if (remainingWater <= 0) {
                 break;

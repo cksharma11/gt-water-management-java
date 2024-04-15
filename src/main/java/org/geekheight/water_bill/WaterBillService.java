@@ -58,8 +58,8 @@ public class WaterBillService implements WaterBillServiceBoundary {
     }
 
     private WaterAllotment calculateInitialWaterAllotment(int baseWaterAllotment, WaterRatio waterRatio) {
-        int corporationRatio = waterRatio.corporationRatio();
-        int borewellRatio = waterRatio.borewellRatio();
+        int corporationRatio = waterRatio.getCorporationRatio();
+        int borewellRatio = waterRatio.getBorewellRatio();
         int corporationWaterAllotment = baseWaterAllotment * corporationRatio / (corporationRatio + borewellRatio);
         int borewellWaterAllotment = baseWaterAllotment * borewellRatio / (corporationRatio + borewellRatio);
         return new WaterAllotment(corporationWaterAllotment, borewellWaterAllotment);

@@ -21,11 +21,18 @@ public class AllotWaterCommandExecutor implements CommandExecutor {
         int corporateWaterRatio = Integer.parseInt(ratioSplit[0]);
         int borewellWaterRatio = Integer.parseInt(ratioSplit[1]);
 
-        ApartmentType apartmentType = switch (apartmentTypeInput) {
-            case 2 -> ApartmentType.TWO_BHK;
-            case 3 -> ApartmentType.THREE_BHK;
-            default -> throw new InvalidCommandException("Apartment type is invalid");
-        };
+        ApartmentType apartmentType;
+
+        switch (apartmentTypeInput) {
+            case 2:
+                apartmentType = ApartmentType.TWO_BHK;
+                break;
+            case 3:
+                apartmentType = ApartmentType.THREE_BHK;
+                break;
+            default:
+                throw new InvalidCommandException("Apartment type is invalid");
+        }
 
         WaterRatio ratio = new WaterRatio(corporateWaterRatio, borewellWaterRatio);
         return waterBillService.allotWater(apartmentType, ratio);

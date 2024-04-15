@@ -15,10 +15,10 @@ public class InputParserTest {
         List<Command> commands = InputParser.parseInput("test-input-1");
 
         assertEquals(4, commands.size());
-        assertEquals(CommandType.ALLOT_WATER, commands.get(0).command());
-        assertEquals(CommandType.ADD_GUESTS, commands.get(1).command());
-        assertEquals(CommandType.ADD_GUESTS, commands.get(2).command());
-        assertEquals(CommandType.BILL, commands.get(3).command());
+        assertEquals(CommandType.ALLOT_WATER, commands.get(0).getCommand());
+        assertEquals(CommandType.ADD_GUESTS, commands.get(1).getCommand());
+        assertEquals(CommandType.ADD_GUESTS, commands.get(2).getCommand());
+        assertEquals(CommandType.BILL, commands.get(3).getCommand());
     }
 
     @Test
@@ -26,8 +26,8 @@ public class InputParserTest {
         List<Command> commands = InputParser.parseInput("test-input-3");
 
         assertEquals(2, commands.size());
-        assertEquals(CommandType.ALLOT_WATER, commands.get(0).command());
-        assertEquals(CommandType.BILL, commands.get(1).command());
+        assertEquals(CommandType.ALLOT_WATER, commands.get(0).getCommand());
+        assertEquals(CommandType.BILL, commands.get(1).getCommand());
     }
 
     @Test

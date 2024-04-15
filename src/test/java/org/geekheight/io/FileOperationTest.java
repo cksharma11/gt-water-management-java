@@ -11,10 +11,7 @@ public class FileOperationTest {
     @Test
     public void readFileAsStringShouldReturnFileContent() throws FileNotFoundException {
         String fileName = "test-file.txt";
-        String expectedContent = """
-                This is a test file content.
-                It has multiple lines.
-                """;
+        String expectedContent = "This is a test file content.\nIt has multiple lines.\n";
         String fileContent = FileOperation.readFileAsString(fileName);
         assertEquals(expectedContent, fileContent);
     }

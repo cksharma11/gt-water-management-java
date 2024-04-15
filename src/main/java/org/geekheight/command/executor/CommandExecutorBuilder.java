@@ -1,5 +1,6 @@
 package org.geekheight.command.executor;
 
+import org.geekheight.exception.InvalidCommandException;
 import org.geekheight.parser.CommandType;
 import org.geekheight.water_bill.boundary.WaterBillServiceBoundary;
 
@@ -10,12 +11,17 @@ public class CommandExecutorBuilder {
         this.waterBillService = waterBillService;
     }
 
-    public CommandExecutor build(CommandType commandName) {
-        return switch (commandName) {
-            case ALLOT_WATER -> new AllotWaterCommandExecutor(waterBillService);
-            case ADD_GUESTS -> new AddGuestCommandExecutor(waterBillService);
-            case BILL -> new BillCommandExecutor(waterBillService);
-        };
+    public CommandExecutor build(CommandType commandName) throws InvalidCommandException {
+        switch (commandName) {
+            case ALLOT_WATER:
+                return new AllotWaterCommandExecutor(waterBillService);
+            case ADD_GUESTS:
+                return new AddGuestCommandExecutor(waterBillService);
+            case BILL:
+                return new BillCommandExecutor(waterBillService);
+            default:
+                throw new InvalidCommandException("Invalid command provided");
+        }
     }
 }
 
