@@ -9,6 +9,7 @@ import org.geekheight.logger.ConsoleLogger;
 import org.geekheight.logger.boundary.Logger;
 import org.geekheight.parser.Command;
 import org.geekheight.parser.InputParser;
+import org.geekheight.utils.TestUtils;
 import org.geekheight.water_bill.WaterBillService;
 import org.geekheight.water_bill.boundary.WaterBillServiceBoundary;
 import org.geekheight.water_bill.boundary.WaterRateCalculator;
@@ -91,7 +92,7 @@ public class CommandProcessorTest {
 
         Logger logger = new ConsoleLogger();
         CommandExecutorBuilder commandExecutor = new CommandExecutorBuilder(waterBillService);
-        List<Command> commands = InputParser.parseInput(inputFile);
+        List<Command> commands = InputParser.parseInput(TestUtils.getResourcePath((inputFile)));
         commandProcessor = new CommandProcessor(commands, commandExecutor, logger);
     }
 }

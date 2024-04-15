@@ -3,7 +3,7 @@
 ## Requirement
 
 - Java
-- JDK-17
+- JDK-11
 
 ## Running with input files located in resource
 
@@ -17,7 +17,7 @@ BILL
 ```
 
 ```
-./gradlew run --args="input-1"
+./gradlew run --args="src/main/resources/input-1"
 ```
 
 input-2
@@ -30,7 +30,7 @@ BILL
 ```
 
 ```
-./gradlew run --args="input-2"
+./gradlew run --args="src/main/resources/input-2"
 ```
 
 input-3
@@ -41,5 +41,5 @@ BILL
 ```
 
 ```
-./gradlew run --args="input-3"
+./gradlew run --args="src/main/resources/input-3"
 ```
